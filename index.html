@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="p:domain_verify" content="7c4cb5c193110dcaf5a6ca1c986267a9"/>
+<meta charset="UTF-8">
+<title>Top Amazon Deals</title>
+
+<style>
+body {
+  font-family: Arial;
+  margin: 0;
+  background: #f5f5f5;
+}
+
+/* Header */
+.header {
+  background: black;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  font-size: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Timer */
+.timer {
+  background: #ff5722;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+}
+
+/* Grid */
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Card */
+.card {
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  text-align: center;
+  position: relative;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+/* Top Pick */
+.top-pick {
+  border: 2px solid gold;
+}
+
+/* Badge */
+.badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: gold;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+/* Image */
+img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+}
+
+/* Text */
+.tag {
+  color: orange;
+  font-weight: bold;
+}
+
+.price {
+  color: green;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: gray;
+  margin-left: 5px;
+}
+
+.offer {
+  color: red;
+  font-weight: bold;
+}
+
+/* Button */
+button {
+  background: black;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #ff5722;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">🔥 Top Amazon Deals</div>
+
+<!-- LIVE TIMER -->
+<div class="timer" id="countdown"></div>
+
+<div class="products">
+
+<!-- PRODUCT 1 -->
+<div class="card top-pick">
+<div class="badge">🏆 Top Pick</div>
+<img src="./images/earbuds.jpg">
+
+<h3>Bluetooth Earbuds</h3>
+<div>⭐⭐⭐⭐☆ (4.5/5)</div>
+<div class="tag">⭐ Best Seller</div>
+
+<div class="price">₹1599 <span class="old-price">₹2999</span></div>
+<div class="offer">🔥 50% OFF</div>
+
+<div style="color:red; font-weight:bold;">⚡ Only 5 left in stock</div>
+
+<p>Deep bass, long battery life, perfect for music & calls</p>
+
+<a href="https://amzn.to/4c3ovX7" target="_blank">
+<button>🔥 Grab Deal Now</button>
+</a>
+</div>
+
+<!-- PRODUCT 2 -->
+<div class="card">
+<img src="./images/stand.jpg">
+
+<h3>Phone Stand</h3>
+<div>⭐⭐⭐⭐☆ (4.3/5)</div>
+<div class="tag">🔥 Trending Now</div>
+
+<div class="price">₹999 <span class="old-price">₹1999</span></div>
+<div class="offer">🔥 50% OFF</div>
+
+<div style="color:red; font-weight:bold;">⚡ Only 8 left in stock</div>
+
+<p>Adjustable angle, perfect for desk & video watching</p>
+
+<a href="https://amzn.to/3QcLc3J" target="_blank">
+<button>🔥 Grab Deal Now</button>
+</a>
+</div>
+
+<!-- PRODUCT 3 -->
+<div class="card">
+<img src="./images/bottle.jpg">
+
+<h3>Water Bottle</h3>
+<div>⭐⭐⭐⭐☆ (4.4/5)</div>
+<div class="tag">🚀 Hot Deal</div>
+
+<div class="price">₹699 <span class="old-price">₹1299</span></div>
+<div class="offer">🔥 45% OFF</div>
+
+<div style="color:red; font-weight:bold;">⚡ Only 3 left in stock</div>
+
+<p>Leak-proof, durable, ideal for gym & travel</p>
+
+<a href="https://amzn.to/4m2JYE0" target="_blank">
+<button>🔥 Grab Deal Now</button>
+</a>
+</div>
+
+</div>
+
+<!-- TRUST SECTION -->
+<h2 style="text-align:center;">Why Trust Us?</h2>
+<p style="text-align:center; max-width:600px; margin:auto;">
+We research and handpick the best Amazon deals to save your time and money.
+All products are selected based on quality, reviews, and value.
+</p>
+
+<p style="text-align:center; padding:20px;">
+This site contains affiliate links.
+</p>
+
+<!-- FLOATING BUTTON -->
+<a href="https://amzn.to/4c3ovX7" target="_blank"
+style="
+position:fixed;
+bottom:20px;
+right:20px;
+background:#ff5722;
+color:white;
+padding:15px 20px;
+border-radius:50px;
+font-weight:bold;
+text-decoration:none;
+box-shadow:0 5px 15px rgba(0,0,0,0.3);
+">
+🔥 View Best Deal
+</a>
+
+<!-- TIMER SCRIPT -->
+<script>
+let time = 7200;
+
+setInterval(() => {
+  let hours = Math.floor(time / 3600);
+  let minutes = Math.floor((time % 3600) / 60);
+  let seconds = time % 60;
+
+  document.getElementById("countdown").innerHTML =
+    "⏳ Deal ends in: " + hours + "h " + minutes + "m " + seconds + "s";
+
+  if (time > 0) time--;
+}, 1000);
+</script>
+
+</body>
+</html>
